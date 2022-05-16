@@ -1,0 +1,759 @@
+@charset 'utf-8';
+@import url('notosanskr/NotoSansKR.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* outline-style: none; */
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+html {
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+
+body {
+    font-family: 'Noto Sans KR';
+    font-size: 1rem;
+    font-weight: 200;
+    line-height: 1.15;
+    letter-spacing: 0px;
+    color: #444;
+    word-break: break-all;
+}
+
+/* 공통 요소 */
+.container {
+    position: relative;
+    display: block;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.wrap {
+    position: relative;
+    display: block;
+    min-width: 1200px;
+}
+
+/* 상단 */
+.header {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    display: block;
+    width: 100%;
+
+    height: 80px;
+    
+    z-index: 999;
+    overflow: hidden;
+
+    transition: height 0.3s;
+    
+    box-shadow: 0px 0px 7px 0px rgb(0 0 0 / 20%);
+    -webkit-box-shadow: 0px 0px 7px 0px rgb(0 0 0 / 20%);
+    
+}
+
+.header-active{
+    height: 410px;
+}
+
+.header > .container {
+    height: 80px;    
+}
+
+.header > .container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    width: 100vw;
+    height: 80px;
+    background-color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.logo {
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    /* 보이는 내용물만 옮겨라. */
+    transform: translate(-150px, -50%);
+    display: block;
+}
+
+.nav {
+    position: absolute;
+    left: 0;
+    top: 80px;
+    display: block;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.gnb {
+    position: relative;
+    display: block;
+    text-align: center;
+
+    /* 줄내림 하지 마라. */
+    white-space: nowrap;
+    letter-spacing: 0;
+    font-size: 0;
+    margin-top: -80px;
+}
+
+.gnb>li {
+    position: relative;
+    display: inline-block;
+    padding: 0 35px;
+
+    vertical-align: top;
+
+    text-align: left;
+
+    width: 178px;
+}
+
+.gnb>li>a {
+    position: relative;
+    display: block;
+    font-size: 19px;
+    font-weight: 500;
+    color: #000;
+
+    line-height: 80px;
+}
+
+.submenu {
+    position: relative;
+    display: block;
+    padding-top: 40px;
+    padding-bottom: 70px;
+}
+.submenu li {
+    position: relative;
+    display: block;
+
+    line-height: 28.8px;
+}
+
+.submenu li a {
+    position: relative;
+    display: block;
+    font-size: 15px;
+    color: #fff;
+}
+
+/* 주메뉴 포커스 유지 */
+.gnb > li:hover > a {
+    color: #ed1c24;
+}
+
+.language {
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translate(150px, -50%);
+    display: block;
+
+    margin-right: -290px;
+}
+
+.language-list {
+    position: relative;
+    display: block;
+
+    white-space: nowrap;
+    font-size: 0;
+}
+
+.language-list li {
+    position: relative;
+    display: inline-block;
+    margin-left: 24px;
+}
+
+.language-list li:first-child {
+    margin-left: 0;
+}
+
+.language-list li:last-child::before {
+    content: '';
+    position: absolute;
+    left: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    display: block;
+    width: 1px;
+    height: 11px;
+    background-color: #999;
+}
+
+.language-list li a {
+    position: relative;
+    display: block;
+
+    font-size: 15px;
+    color: #000;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.language-no {
+    color: #888 !important;
+}
+
+
+
+/* 메인 */
+.main {
+    position: relative;
+    display: block;
+    /* 상단의 header가 fixed 이므로 높이를 강제 반영 */
+    padding-top: 80px;
+}
+
+/* 비주얼 */
+.visual {
+    position: relative;
+    display: block;
+    height: 910px;
+    background: url('../images/img_visual01.png') no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+
+    overflow: hidden;
+}
+
+.visual .container {
+    padding-top: 180px;
+    height: 100%;
+}
+
+.visual-title {
+    position: relative;
+    display: block;
+
+    font-size: 70px;
+    line-height: 1.1;
+    font-weight: 500;
+    color: #fff;
+
+    padding-top: 64px;
+    padding-bottom: 42px;
+}
+
+.visual-title::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 0;
+    display: block;
+    width: 60px;
+    height: 5px;
+    background-color: #ed1c24;
+}
+
+.visual-txt {
+    position: relative;
+    display: block;
+
+    font-size: 21px;
+    color: #fff;
+}
+
+.visual-bt {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 40px;
+
+    display: block;
+    width: 33px;
+    height: 33px;
+    background: url('../images/bg_common.png') no-repeat;
+    background-position: -122px 0;
+    border: 0;
+    font-size: 0;
+    cursor: pointer;
+}
+
+/* 비즈니스 파트 */
+.part {
+    position: relative;
+    display: block;
+}
+
+.part .container {
+    padding-top: 110px;
+    padding-bottom: 130px;
+}
+
+.part-top {
+    position: relative;
+    display: block;
+}
+
+.part-title {
+    position: relative;
+    display: block;
+    color: #111;
+    font-size: 44px;
+    font-weight: 600;
+    text-align: center;
+
+    padding-bottom: 25px;
+}
+
+.part-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    display: block;
+    width: 37px;
+    height: 5px;
+
+    background-color: #ed1c24;
+}
+
+
+.part-txt {
+    position: relative;
+    display: block;
+    text-align: center;
+
+    padding-top: 30px;
+}
+
+
+
+.part-bottom {
+    position: relative;
+    display: block;
+
+    padding-top: 70px;
+}
+
+.part-list {
+    position: relative;
+    display: block;
+    width: 100%;
+
+    overflow: hidden;
+}
+
+.part-list li {
+    position: relative;
+    display: block;
+    width: 20%;
+    height: 420px;
+
+    float: left;
+    background: url('../images/img_business.png') no-repeat;
+}
+
+.part-list li:nth-child(1) {
+    background-position: 0px 0px;
+}
+
+.part-list li:nth-child(2) {
+    background-position: -240px 0px;
+}
+
+.part-list li:nth-child(3) {
+    background-position: -480px 0px;
+}
+
+.part-list li:nth-child(4) {
+    background-position: -720px 0px;
+}
+
+.part-list li:nth-child(5) {
+    background-position: -960px 0px;
+}
+
+
+.part-list li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.part-list-img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 0%);
+
+    display: block;
+    width: 130px;
+    height: 111px;
+    background: url('../images/bg_common.png') no-repeat;
+
+    font-size: 0;
+}
+
+.part-list li:nth-child(1) a .part-list-img {
+    background-position: -164px 0px;
+}
+
+.part-list li:nth-child(2) a .part-list-img {
+    background-position: -298px 0px;
+}
+
+.part-list li:nth-child(3) a .part-list-img {
+    background-position: 0px -120px;
+}
+
+.part-list li:nth-child(4) a .part-list-img {
+    background-position: -140px -122px;
+}
+
+.part-list li:nth-child(5) a .part-list-img {
+    background-position: -267px -119px;
+}
+
+.part-list-txt {
+    position: relative;
+    display: block;
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    padding-top: 98px;
+}
+
+.part-list-img {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.part-list li a:hover .part-list-img {
+    visibility: visible;
+    opacity: 1.0;
+}
+
+.part-list li a {
+    background-color: rgba(243, 127, 37, 0.0);
+    transition: background-color 0.3s;
+}
+
+.part-list li a:hover {
+    background-color: rgba(243, 127, 37, 1.0);
+}
+
+
+/* 새소식 */
+.news {
+    position: relative;
+    display: block;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ec1c24+50,58595b+50 */
+    background: #ec1c24;
+    /* Old browsers */
+    background: -moz-linear-gradient(left, #ec1c24 50%, #58595b 50%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #ec1c24 50%, #58595b 50%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #ec1c24 50%, #58595b 50%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ec1c24', endColorstr='#58595b', GradientType=1);
+    /* IE6-9 */
+}
+
+.news .container {
+    padding: 55px 0;
+    overflow: hidden;
+}
+
+.news-board {
+    position: relative;
+    display: block;
+    width: 50%;
+    float: left;
+}
+
+.news-board:nth-child(1) {
+    padding-right: 100px;
+}
+
+.news-board:nth-child(2) {
+    padding-left: 100px;
+}
+
+.news-title {
+    position: relative;
+    display: block;
+    font-size: 32px;
+    color: #fff;
+    padding-bottom: 45px;
+}
+
+
+.news-board-list {
+    position: relative;
+    display: block;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.news-board-list>li {
+    position: relative;
+    display: block;
+
+    padding: 25px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.news-board-list>li>a {
+    position: relative;
+    display: block;
+}
+
+.news-board-txt {
+    position: relative;
+    display: block;
+    color: #fff;
+}
+
+.news-board-more {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    display: block;
+    width: 47px;
+    height: 23px;
+
+    background: url('../images/bg_common.png') no-repeat;
+    background-position: 0px -48px;
+}
+
+
+/* 고객 서비스 */
+.customer {
+    position: relative;
+    display: block;
+    background-color: #f8f8f8;
+}
+
+.customer .container {
+    padding-top: 60px;
+    padding-bottom: 100px;
+    overflow: hidden;
+}
+
+.customer a {
+    position: relative;
+    display: block;
+    width: calc(50% - 1px);
+    background-color: #fff;
+
+    padding: 40px 50px;
+}
+
+.customer a:nth-child(1) {
+    float: left;
+    background: #fff url('../images/bg_faq.png') no-repeat;
+
+    background-position: calc(100% - 40px) 50%;
+}
+
+.customer a:nth-child(2) {
+    float: right;
+    background: #fff url('../images/bg_custom.png') no-repeat;
+
+    background-position: calc(100% - 40px) 50%;
+}
+
+.customer h3 {
+    position: relative;
+    display: block;
+    font-size: 30px;
+    font-weight: 500;
+    color: #000;
+
+    padding-bottom: 25px;
+}
+
+.customer p {
+    position: relative;
+    display: block;
+}
+
+
+
+/* 고객 서비스 */
+.about {
+    position: relative;
+    display: block;
+}
+
+.about .container {
+    padding: 100px 0;
+}
+
+.about-top {
+    position: relative;
+    display: block;
+    height: 370px;
+
+    background: url('../images/img_about.png') no-repeat;
+    background-position: right center;
+}
+
+.about-top h2 {
+    position: relative;
+    display: block;
+    font-size: 44px;
+    color: #111;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.about-top p {
+    position: relative;
+    display: block;
+
+    padding-left: 100px;
+}
+
+.about-top p::before {
+
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    display: block;
+    width: 35px;
+    height: 5px;
+    background-color: #ec1c24;
+}
+
+
+.about-top b {
+    position: relative;
+    display: block;
+    font-size: 21px;
+    font-weight: 500;
+    color: #111;
+
+    padding-bottom: 30px;
+}
+
+
+.about-top span {
+    position: relative;
+    display: block;
+
+    font-size: 15px;
+}
+
+.about-bottom {
+    position: relative;
+    display: block;
+    margin-top: 75px;
+
+    text-align: center;
+
+    font-size: 0;
+    white-space: nowrap;
+}
+
+.about-bottom a {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 108px;
+    background: url('../images/bg_icon.png') no-repeat;
+}
+
+.about-bottom a:nth-child(1) {
+    background-position: 0px 0px;
+}
+
+.about-bottom a:nth-child(2) {
+    background-position: -118px 0px;
+
+    margin: 0 180px;
+}
+
+
+.about-bottom a:nth-child(3) {
+    background-position: -233px 0px;
+}
+
+.about-bottom h3 {
+    position: relative;
+    display: block;
+    font-size: 22px;
+    color: #111;
+    font-weight: 500;
+
+    margin-top: 130px;
+}
+
+/* 하단 */
+.footer {
+    position: relative;
+    display: block;
+    background-color: #4e4e4e;
+}
+
+.footer .container {
+    padding: 55px 0px 50px 0;
+    overflow: hidden;
+}
+
+.f-left {
+    position: relative;
+    display: block;
+    float: left;
+    width: 255px;
+    height: 60px;
+
+    background: url('../images/logo_footer.png') no-repeat;
+}
+
+.f-right {
+    position: relative;
+    display: block;
+    float: left;
+    width: calc(100% - 255px);
+}
+
+.f-right address,
+.f-right span {
+    position: relative;
+    display: block;
+    font-size: 13px;
+    line-height: 1.8;
+    color: #c3c3c3;
+}
