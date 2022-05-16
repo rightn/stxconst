@@ -1,3 +1,14 @@
+$(document).ready(function(){
+let modal_close = $('.modal-close');
+let modal = $('.modal');
+modal_close.click(function(){
+    modal.hide();
+});
+let modal_bt = $('.modal-bt');
+modal_bt.click(function(){
+    modal.show();
+})
+})
 window.onload = function() {
     // gnb 기능  
     // 1. gnb 를 저장한다.
